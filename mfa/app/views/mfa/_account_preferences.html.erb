@@ -1,0 +1,8 @@
+<p>
+	<label><%= l(:label_enable_mfa) %></label>
+    <% if !@user.mfa_access_token.present? %>
+		<a href="<%= Rails.application.config.authorize_link %>"><%= l(:mfa_enable_now) %></a>
+	<% elsif %>
+		<%= l(:mfa_already_enabled) %>
+    <% end %>
+</p>

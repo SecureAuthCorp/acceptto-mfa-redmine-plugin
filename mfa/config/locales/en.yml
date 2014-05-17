@@ -1,0 +1,15 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  mfa_enable_acceptted: "Multi Factor Authentication request was accepted."
+  mfa_enable_rejected: "Multi Factor Authentication request denied."
+  mfa_enable_timeout: "Multi Factor Authentication request timed out."
+  mfa_access_denied: "MFA Access Denied!"
+  mfa_access_granted: "MFA Access Granted!"
+  mfa_redmine_wishing_authorize: "Redmine is wishing to authorize"
+  mfa_you_have_60: "You have 60 seconds to respond to the request sent to your device."
+  mfa_user_session_expired: "User session expired."
+  mfa_authetication_type: "Login"
+  mfa_already_enabled: "Already enabled."
+  mfa_enable_now: "Enable Now"
+  label_enable_mfa: "Multi Factor Auth"
