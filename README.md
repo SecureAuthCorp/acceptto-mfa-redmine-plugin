@@ -3,11 +3,13 @@
 Acceptto Multi Factor Authentication for Redmine
 ===========================
 
-1- Run Patch File (acceptto-mfa.patch) on your redmine source code.
+1- Run Patch File on your redmine source code:
 
-2- Copy mfa folder into /plugin folder of redmine
+    git am --signoff < acceptto-mfa.patch
 
-3- run bundle install
+2- Copy mfa folder into /plugin folder of redmine.
+
+3- run bundle install:
 
     bundle install
 
