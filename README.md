@@ -1,3 +1,5 @@
+![Acceptto](/Acceptto.png "Acceptto")
+
 Acceptto Multi Factor Authentication for Redmine
 ===========================
 
