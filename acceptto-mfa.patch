@@ -5,7 +5,6 @@ Subject: [PATCH] patching redmine to enable mfa
 
 ---
  app/controllers/account_controller.rb | 2 +-
- config/environments/development.rb    | 9 +++++++++
  1 file changed, 1 insertions(+), 1 deletion(-)
 
 diff --git a/app/controllers/account_controller.rb b/app/controllers/account_controller.rb
