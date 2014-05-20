@@ -1,8 +1,8 @@
-<%= javascript_include_tag "#{Rails.application.config.faye_server}/faye.js", "data-turbolinks-track" => false %>
+<%= javascript_include_tag "#{Acceptto::Client.faye_server_address}/faye.js", "data-turbolinks-track" => false %>
 <div class="flash notice" id="flash_notice"></div>
 <script type="text/javascript">
     $(function() {
-        var faye = new Faye.Client("<%= Rails.application.config.faye_server %>");
+        var faye = new Faye.Client("<%= Acceptto::Client.faye_server_address %>");
         faye.subscribe("/messages/<%= @channel %>", function(data) {
             window.location.replace("/mfa/check?channel=<%= @channel %>");
         });

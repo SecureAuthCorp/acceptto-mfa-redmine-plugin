@@ -14,14 +14,14 @@ class MfaController < ApplicationController
     end
     
     user = User.current
+		acceptto = Acceptto::Client.new(Rails.configuration.mfa_app_uid,Rails.configuration.mfa_app_secret, "#{Rails.configuration.redmine_host}/mfa/callback")
+		status = acceptto.mfa_check(user.mfa_access_token, params[:channel])
     
-    access = OAuth2::AccessToken.from_hash(client, {:access_token => user.mfa_access_token })
-    response = access.post("/api/v4/check", { body: {:channel => params[:channel]} }).parsed
-    if response["status"] == "approved"
+    if status == "approved"
       user.update_attribute(:mfa_authenticated, true)
       flash[:notice] = l(:mfa_enable_acceptted)
       return redirect_back_or_default my_page_path
-    elsif response["status"] == "rejected"
+    elsif status == "rejected"
       logout_user
       flash[:error] = l(:mfa_enable_rejected)
       return redirect_back_or_default signin_path
@@ -45,11 +45,4 @@ class MfaController < ApplicationController
     flash[:notice] = l(:mfa_access_granted)
     redirect_to my_account_path
   end
-  
-  private
-  
-  def client
-    @client ||= OAuth2::Client.new(Rails.application.config.mfa_app_id, Rails.application.config.mfa_secret, site: Rails.application.config.mfa_site)
-  end
-  
 end
