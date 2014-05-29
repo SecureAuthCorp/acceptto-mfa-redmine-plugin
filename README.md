@@ -21,7 +21,7 @@ Acceptto is a Multi-Factor Authentication service that allows the use of your mo
 
     rake redmine:plugins:migrate
 
-5- This variables should be present in Rails.configuration:
+5- This variables should be present in your config/environments/development.rb & production.rb:
 
     config.redmine_host = "Address of your redmine host"
     config.mfa_app_uid = "Application unique id you've got from Acceptto."
