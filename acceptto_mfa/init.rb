@@ -1,4 +1,4 @@
-Redmine::Plugin.register :mfa do
+Redmine::Plugin.register :acceptto_mfa do
   name 'Multi-Factor Authentication plugin'
   author 'Acceptto Corp'
   description 'Acceptto Multi-Factor Authentication plugin for redmine'
@@ -9,7 +9,7 @@ Redmine::Plugin.register :mfa do
   require_dependency 'mfa_hook_listener'
 
   Rails.configuration.to_prepare do
-    AccountController.send(:include, AccountControllerPatch)
     ApplicationController.send(:include, ApplicationControllerPatch)
+    AccountController.send(:include, AccountControllerPatch)
   end
 end

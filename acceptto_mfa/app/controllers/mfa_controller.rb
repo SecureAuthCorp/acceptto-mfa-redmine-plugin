@@ -1,7 +1,7 @@
 class MfaController < ApplicationController
   unloadable
   skip_before_filter :mfa_authentication_required
-  
+
   def index
     @channel = params[:channel]
   end
@@ -12,11 +12,11 @@ class MfaController < ApplicationController
       flash[:error] = l(:mfa_user_session_expired)
       return redirect_back_or_default signin_path
     end
-    
+
     user = User.current
-		acceptto = Acceptto::Client.new(Rails.configuration.mfa_app_uid,Rails.configuration.mfa_app_secret, "#{Rails.configuration.redmine_host}/mfa/callback")
+		acceptto = Acceptto::Client.new($mfa_app_uid,$mfa_app_secret,"#{request.protocol + request.host_with_port}/mfa/callback}")
 		status = acceptto.mfa_check(user.mfa_access_token, params[:channel])
-    
+
     if status == "approved"
       user.update_attribute(:mfa_authenticated, true)
       flash[:notice] = l(:mfa_enable_acceptted)
