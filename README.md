@@ -7,21 +7,17 @@ Acceptto is a Multi-Factor Authentication service that allows the use of your mo
 
 ## Installation
 
-1- Run patch file on your redmine source code:
+1- Copy mfa folder into /plugin folder of redmine.
 
-    git am --signoff < acceptto-mfa.patch
-
-2- Copy mfa folder into /plugin folder of redmine.
-
-3- Run bundle install:
+2- Run bundle install:
 
     bundle install
 
-4- Run plugin migrations: 
+3- Run plugin migrations:
 
     rake redmine:plugins:migrate
 
-5- This variables should be present in your config/environments/development.rb & production.rb:
+4- This variables should be present in your config/environments/development.rb & production.rb:
 
     config.redmine_host = "Address of your redmine host"
     config.mfa_app_uid = "Application unique id you've got from Acceptto."
@@ -29,7 +25,7 @@ Acceptto is a Multi-Factor Authentication service that allows the use of your mo
 
 For example:
 
-    p Rails.configuration.redmine_host 
+    p Rails.configuration.redmine_host
 
 Should return something like:
 
