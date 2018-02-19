@@ -1,6 +1,6 @@
 class MfaController < ApplicationController
   unloadable
-  skip_before_filter :mfa_authentication_required
+  skip_before_action :mfa_authentication_required
 
   def index
     @channel = params[:channel]

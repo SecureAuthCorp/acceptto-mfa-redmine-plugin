@@ -1,2 +1,2 @@
-module AuthenticationHelper
+module MfaHelper
 end
