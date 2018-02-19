@@ -1,2 +1,2 @@
 gem 'oauth2'
-gem 'Acceptto', :github => 'acceptto-corp/mfa-web-gem'
+gem 'acceptto', :github => 'acceptto-corp/mfa-web-gem'
