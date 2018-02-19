@@ -19,7 +19,7 @@ Acceptto is a Multi-Factor Authentication service that allows the use of your mo
 
 4- Optionally you can add this values to your config files, to customize application name and authentication message, add them in your config/environments/development.rb & production.rb:
 
-    config.mfa_message = "Address of your redmine host"
+    config.mfa_message = "Authenticate message you want user to see."
     config.mfa_app_uid = "Application unique id you've got from Acceptto."
     config.mfa_app_secret = "Application secret you've got from Acceptto."
 
