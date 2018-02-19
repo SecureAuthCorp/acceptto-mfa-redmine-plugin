@@ -19,7 +19,8 @@ class MfaHookListener < Redmine::Hook::ViewListener
       options['hash2'] = context[:request].cookies[:hash2] if context[:request].cookies[:hash2]
       options['hash3'] = context[:request].cookies[:hash3] if context[:request].cookies[:hash3]
       options['hash4'] = context[:request].cookies[:hash4] if context[:request].cookies[:hash4]
-      access = OAuth2::AccessToken.from_hash(oauth_client, {:access_token =>  access_token})
+      oauth_client = OAuth2::Client.new($mfa_app_uid,$mfa_app_secret, :site => Acceptto::Client.M2M_SITE)
+      access = OAuth2::AccessToken.from_hash(oauth_client, {:access_token => user.mfa_access_token})
       response = access.post('/api/v8/authenticate', :params => options ).parsed
       @channel = response['channel'] unless response.blank?
       context[:params][:back_url] = "#{Rails.application.config.redmine_host}/mfa/index?channel=#{@channel}"
