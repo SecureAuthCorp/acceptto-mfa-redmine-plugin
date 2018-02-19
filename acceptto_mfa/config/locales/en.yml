@@ -12,5 +12,5 @@ en:
   mfa_authetication_type: "Login"
   mfa_already_enabled: "Already enabled."
   mfa_enable_now: "Enable Now"
-  label_enable_mfa: "Multi Factor Auth"
-  mfa_required: "Multi-Factor Authentication required for sign in."
+  label_enable_mfa: "Acceptto Multi Factor Auth"
+  mfa_required: "Acceptto Multi-Factor Authentication required for sign in."
