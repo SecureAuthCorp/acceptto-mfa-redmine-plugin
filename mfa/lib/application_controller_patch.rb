@@ -5,13 +5,13 @@ module ApplicationControllerPatch
     base.send(:include, InstanceMethods)
     base.class_eval do
       unloadable
-      before_filter :mfa_authentication_required
+      before_action :mfa_authentication_required
     end
   end
-  
+
   module InstanceMethods
     def mfa_authentication_required
-      user = User.current 
+      user = User.current
       if !user.nil? && !user.mfa_access_token.blank? && user.mfa_authenticated == false
         flash[:error] = l(:mfa_required)
         logout_user
