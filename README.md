@@ -1,6 +1,6 @@
 ![Acceptto](/Acceptto.png "Acceptto")
 
-#Acceptto Multi Factor Authentication for Redmine
+# Acceptto Multi Factor Authentication for Redmine
 
 Acceptto is a Multi-Factor Authentication service that allows the use of your mobile device for authorizing requested logins. A notification in the form of SMS or Push is sent to your registered device, giving you full control to authorize or decline the logins. This plugin enables Multi-Factor Authentication for Redmine. (http://www.redmine.org)
 
