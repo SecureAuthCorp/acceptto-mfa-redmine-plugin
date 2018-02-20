@@ -1,0 +1,49 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Acceptto MFA Website</th>
+      <td>
+        <input type="text" size="45" id="settings_mfa_site"
+                           value="<%= settings['mfa_site'] %>"
+                           name="settings[mfa_site]" >
+      </td>
+    </tr>
+
+    <tr>
+      <th>Application UID</th>
+      <td>
+        <input type="text" size="45" id="settings_app_uid"
+                           value="<%= settings['app_uid'] %>"
+                           name="settings[app_uid]" >
+      </td>
+    </tr>
+
+    <tr>
+      <th>Application Secret</th>
+      <td>
+        <input type="text" size="45" id="settings_app_secret"
+                           value="<%= settings['app_secret'] %>"
+                           name="settings[app_secret]" >
+      </td>
+    </tr>
+
+    <tr>
+      <th>Authentication Message</th>
+      <td>
+        <input type="text" size="45" id="settings_auth_message"
+                           value="<%= settings['auth_message'] %>"
+                           name="settings[auth_message]" >
+      </td>
+    </tr>
+
+    <tr>
+      <th>Authentication Timeout (Seconds)</th>
+      <td>
+        <input type="text" size="45" id="settings_auth_timeout"
+                           value="<%= settings['auth_timeout'] %>"
+                           name="settings[auth_timeout]" >
+      </td>
+    </tr>
+
+  </tbody>
+</table>

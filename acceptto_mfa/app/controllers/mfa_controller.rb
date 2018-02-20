@@ -2,10 +2,6 @@ class MfaController < ApplicationController
   unloadable
   skip_before_action :mfa_authentication_required
 
-  def index
-    @channel = params[:channel]
-  end
-
   def check
     user = User.current
     if user.nil?
@@ -13,9 +9,12 @@ class MfaController < ApplicationController
       return redirect_back_or_default signin_path
     end
 
+    session[:channel] = nil
     user = User.current
-		acceptto = Acceptto::Client.new($mfa_app_uid,$mfa_app_secret,"#{request.protocol + request.host_with_port}/mfa/callback}")
-		status = acceptto.mfa_check(user.mfa_access_token, params[:channel])
+    oauth_client = OAuth2::Client.new(Setting.plugin_acceptto_mfa['app_uid'],Setting.plugin_acceptto_mfa['app_secret'], :site => Setting.plugin_acceptto_mfa['mfa_site'])
+    access = OAuth2::AccessToken.from_hash(oauth_client, {:access_token => user.mfa_access_token})
+    response = access.post('/api/v8/check', { :body => {:channel => params[:channel]}}).parsed
+    status = response['status']
 
     if status == "approved"
       user.update_attribute(:mfa_authenticated, true)

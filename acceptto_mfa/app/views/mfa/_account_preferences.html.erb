@@ -1,8 +1,0 @@
-<p>
-	<label><%= l(:label_enable_mfa) %></label>
-    <% if !@user.mfa_access_token.present? %>
-		<a href='<%= Acceptto::Client.new($mfa_app_uid,$mfa_app_secret,"#{request.protocol + request.host_with_port}/mfa/callback").authorize_link %>'><%= l(:mfa_enable_now) %></a>
-	<% elsif %>
-		<%= l(:mfa_already_enabled) %>
-    <% end %>
-</p>
