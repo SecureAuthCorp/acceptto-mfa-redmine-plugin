@@ -1,3 +1,2 @@
 gem 'oauth2'
-gem 'acceptto', :github => 'acceptto-corp/mfa-web-gem'
 gem 'httparty'
